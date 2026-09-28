@@ -1,0 +1,6 @@
+- name: Installer .NET
+  hosts: localhost
+  become: true
+
+  roles:
+    - dotnet

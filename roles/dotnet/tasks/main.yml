@@ -1,0 +1,21 @@
+- name: Installer les prérequis .NET
+  ansible.builtin.apt:
+    name:
+      - ca-certificates
+      - wget
+    state: present
+    update_cache: true
+
+- name: Installer la configuration du dépôt Microsoft
+  ansible.builtin.apt:
+    deb: https://packages.microsoft.com/config/debian/13/packages-microsoft-prod.deb
+    state: present
+
+- name: Mettre à jour le cache APT
+  ansible.builtin.apt:
+    update_cache: true
+
+- name: Installer le SDK .NET 10
+  ansible.builtin.apt:
+    name: dotnet-sdk-10.0
+    state: present
